@@ -1,17 +1,33 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <body>
-
         <ui:composition template="./template.xhtml">
-
-            <ui:define name="content">
-                content
+            <ui:define name="title">Acceso</ui:define>
+            <ui:define name="body">
+                <p:panel header="Acceso a la aplicación">
+                    <h:form prependId="false">
+                        <h:outputLabel
+                            value="Usuario: "
+                            for="nameInput"/>
+                        <h:inputText a:placeholder="Su nombre aquí"/>
+                        <br/>
+                        <h:outputLabel value="Contraseña: "/>
+                        <h:inputSecret a:placeholder="Su clave aquí"/>
+                        <br/>
+                        <h:commandButton
+                            action="errorPage?faces-redirect=true"
+                            value="Ingresar"/>
+                        <h:commandLink
+                            value="¿Olvidaste tu contraseña?"
+                            action="errorPage"/>
+                    </h:form>
+                </p:panel>
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>
